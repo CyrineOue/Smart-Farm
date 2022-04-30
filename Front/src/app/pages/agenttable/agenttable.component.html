@@ -1,0 +1,75 @@
+<div class=" content">
+    <div class=" row">
+      <div class=" col-md-12">
+        <div class=" card">
+          <div class=" card-header">
+            <h4 class=" card-title">Simple Table</h4>
+          </div>
+          <div class=" card-body">
+            <div class=" table-responsive">
+              <table class=" table tablesorter" id="">
+                <thead class=" text-primary">
+                  <tr>
+                    <th>Id</th>
+                    <th>Login</th>
+                    <th>E-mail</th>
+                    <th>Active</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor = 'let a of listAdmins'>
+                    <td>{{a.idAdmin}}</td>
+                    <td>{{a.login}}</td>
+                    <td>{{a.logAdmin.email}}</td>
+                    <td>{{a.logAdmin.active}}</td>
+                    <td>
+                        <button (click)="open(mymodal)" type="button" class="btn btn-primary">EDIT</button>
+                        <ng-template #mymodal let-modal>
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">Edit</h4>
+                                <button type="button" class="close" aria-label="Close"
+                                    (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true" (click)="cancel()">×</span>
+
+                                </button>
+
+                            </div>
+                            <div>
+                            <form>
+                                <div class="modal-body">
+
+                                    <div class="row" class="col-md-5">
+                                        <label>Login</label>
+                                        <input type="text" [(ngModel)]="a.login" [ngModelOptions]="{standalone : true}" />
+                                    </div>
+                                    <div class="row" class="col-md-5">
+                                        <label>E-mail</label>
+                                        <input type="email" [(ngModel)]="a.logAdmin.email" [ngModelOptions]="{standalone : true}" />
+                                    </div>
+                                    <div class="row" class="col-md-5">
+                                        <label>Active</label>
+                                        <input type="text" [(ngModel)]="a.logAdmin.active" [ngModelOptions]="{standalone : true}" />
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+
+                                    <button type="button" class="btn btn-info"
+                                        (click)="modal.close('Save click')" (click)="cancel()">Cancel</button>
+                                    <button class="btn btn-success"(click)="editAdmin(a)" (click)="modal.close('Save click')">Validate</button>
+                                </div>
+                            </form>
+                        </div>
+                        </ng-template>
+                        <button (click)="deleteAdmin(a.idAdmin)" type="button" class="btn btn-primary">DELETE</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

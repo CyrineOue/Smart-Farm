@@ -1,0 +1,35 @@
+<!-- <mat-button-toggle>Toggle me!</mat-button-toggle>
+ -->
+ <div class=" content">
+    <div class=" row">
+      <div class=" col-md-12">
+        <div class=" card">
+          <div class=" card-header">
+            <h4 class=" card-title">My Payments</h4>
+          </div>
+          <div class=" card-body">
+            <div class=" table-responsive">
+              <table class=" table tablesorter" id="">
+                <thead class=" text-primary">
+                  <tr>
+                    <th>ID Payment</th>
+                    <th>ID Contract</th>
+
+                    <th>Payment Date</th>
+                    <th>Paid Premium</th>
+                    <th>Remaining Premium</th>
+                    <th>Refund Amount</th>
+
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    
+                  <tr *ngFor = 'let p of listPayments'>
+                    <td>{{p.idpayment}}</td>
+                    <td>{{p.copayment.idcontract}}</td>
+
+                    <td>{{p.paymentDate}}</td>
+                    <td>{{p.paidPremium}}</td>
+                    <td>{{p.remainingPremium}}</td>
+                    <td>{{p.refundAmount}}</td>

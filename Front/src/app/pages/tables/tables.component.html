@@ -1,0 +1,34 @@
+<div class=" content">
+  <div class=" col-md-12">
+  <mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="mit filter" #input>
+  </mat-form-field>
+  
+  <div class="mat-elevation-z8">
+      <div class=" table-responsive">
+        <table  matSort class=" table tablesorter" id="">
+          <thead class=" text-primary">
+            <tr>
+              <th >Id</th>
+              <th >Login</th>
+              <th >E-mail</th>
+              <th >Active</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = 'let a of listAdmins'>
+              <td>{{a.idAdmin}}</td>
+              <td>{{a.login}}</td>
+              <td>{{a.logAdmin.email}}</td>
+              <td>{{a.logAdmin.active}}</td>
+                      
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of users"></mat-paginator>
+  </div>
+  </div></div>
+
